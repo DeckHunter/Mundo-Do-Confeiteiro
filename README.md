@@ -23,5 +23,5 @@ O usuário será capas de remover itens do carrinho, ou confirmar a compra, e as
 
 # Tela Da Confeitaria 👩‍🍳👨‍🍳
 Do lado da confeitaria teremos um botão de adicionar produto, cada produto vai ter uma foto, nome, preço, e possivelmente uma categoria (Bolo, Doces, etc...), a Confeitaria poderá remover um produto.
-Pedido, depois de efetuado o pedido uma notificação e enviado para a confeitaria, após a confeitaria aceitar o pedido, o pedido é removido da lista de pedidos da Confeitaria.
+Depois de efetuado o pedido uma notificação é enviada para a confeitaria, após a confeitaria aceitar o pedido, o pedido é removido da lista de pedidos da Confeitaria.
 
