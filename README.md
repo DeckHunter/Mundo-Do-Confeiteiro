@@ -2,6 +2,7 @@
 
 # Detalhes Do Projeto 📄
 Eu decide faze-lo em Java, por já ter uma familiaridade melhor como a linguagem no assunto de desenvolvimento Android
+
 Integrantes Da Equipe
 
 # 👨‍💻 - Alex Lima De Freitas 404196 
