@@ -185,7 +185,7 @@ public class NovoProdutoConfeitaria extends AppCompatActivity {
     private void Inicializar(){
         nome_produto = findViewById(R.id.nome_produto);
         preço_produto = findViewById(R.id.preco_produto);
-        calorias_produto = findViewById(R.id.textCaloria_da_refeicao);
+        calorias_produto = findViewById(R.id.calorias_produto);
         descricao_produto = findViewById(R.id.descricao_produto);
         imagem_produto = findViewById(R.id.imageProduto);
     }

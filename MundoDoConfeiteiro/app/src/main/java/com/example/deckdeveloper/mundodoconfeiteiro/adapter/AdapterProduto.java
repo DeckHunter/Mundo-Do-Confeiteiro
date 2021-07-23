@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.deckdeveloper.mundodoconfeiteiro.R;
 import com.example.deckdeveloper.mundodoconfeiteiro.model.Produto;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,7 +41,10 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MyViewHo
         holder.descricao.setText(produto.getDescricao());
         holder.preco.setText("R$ " + produto.getPreco());
         holder.calorias.setText( produto.getCalorias()+ " Kcal");
-        holder.imagem_Produto.setImageURI(Uri.parse(produto.getURLImage()));
+
+        //Pegar Imagem
+        String imagem = produto.getURLImage();
+        Picasso.get().load(imagem).into(holder.imagem_Produto);
     }
 
     @Override
