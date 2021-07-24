@@ -30,17 +30,17 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textDescricaoRefeicao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Salmão com nosso delicioso arroz temperado"
-            android:textSize="14sp" />
-
-        <TextView
             android:id="@+id/textCaloria_da_refeicao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="300"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textDescricaoRefeicao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salmão com nosso delicioso arroz temperado"
             android:textSize="14sp" />
 
         <TextView

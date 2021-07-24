@@ -11,12 +11,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.deckdeveloper.mundodoconfeiteiro.R;
 import com.example.deckdeveloper.mundodoconfeiteiro.adapter.AdapterProduto;
 import com.example.deckdeveloper.mundodoconfeiteiro.helper.ConfiguracaoFireBase;
 import com.example.deckdeveloper.mundodoconfeiteiro.helper.UserFireBase;
+import com.example.deckdeveloper.mundodoconfeiteiro.listener.RecyclerItemClickListener;
 import com.example.deckdeveloper.mundodoconfeiteiro.model.Produto;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -62,6 +66,35 @@ public class ConfeitariaActivity extends AppCompatActivity {
 
         //Recuperar Produtos
         RecuperarProdutos();
+
+        //Adicionar Evento De Click No RecyclerView
+        recyclerProdutos.addOnItemTouchListener(
+                new RecyclerItemClickListener(
+                        this,
+                        recyclerProdutos,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+                                Produto produtoSelecionado = produtos.get(position);
+                                produtoSelecionado.remover();
+
+                                Toast.makeText(
+                                        ConfeitariaActivity.this,
+                                        "Produto Removido Com Sucesso",
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                            }
+                        }));
 
     }
 

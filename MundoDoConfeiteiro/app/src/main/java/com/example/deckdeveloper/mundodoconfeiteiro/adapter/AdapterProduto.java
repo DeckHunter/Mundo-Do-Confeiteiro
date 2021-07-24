@@ -66,7 +66,7 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MyViewHo
             nome = itemView.findViewById(R.id.textNomeRefeicao);
             descricao = itemView.findViewById(R.id.textDescricaoRefeicao);
             preco = itemView.findViewById(R.id.textPreco);
-            calorias = itemView.findViewById(R.id.calorias_produto);
+            calorias = itemView.findViewById(R.id.textCaloria_da_refeicao);
             imagem_Produto = itemView.findViewById(R.id.imagem_refeicao);
         }
     }
