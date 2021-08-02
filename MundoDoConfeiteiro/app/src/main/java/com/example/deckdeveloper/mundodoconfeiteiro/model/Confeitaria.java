@@ -3,7 +3,9 @@ package com.example.deckdeveloper.mundodoconfeiteiro.model;
 import com.example.deckdeveloper.mundodoconfeiteiro.helper.ConfiguracaoFireBase;
 import com.google.firebase.database.DatabaseReference;
 
-public class Confeitaria {
+import java.io.Serializable;
+
+public class Confeitaria implements Serializable {
     private String IdUsuario;
     private String URLImage;
     private Double Taxa;
@@ -14,6 +16,7 @@ public class Confeitaria {
     public Confeitaria() {
 
     }
+
 
     public String getIdUsuario() {
         return IdUsuario;
