@@ -167,7 +167,7 @@ public class ConfiguracoesConfeitaria extends AppCompatActivity {
                     taxa_confeitaria.setText(confeitaria.getTaxa().toString());
                     URL_Img_Selecionada = confeitaria.getURLImage();
 
-                    if(URL_Img_Selecionada != ""){
+                    if(!URL_Img_Selecionada.equals("")){
                         Picasso.get().load(URL_Img_Selecionada).into(imageConfeitaria);
                     }
                 }
@@ -187,22 +187,25 @@ public class ConfiguracoesConfeitaria extends AppCompatActivity {
         String tempo = tempo_confeitaria.getText().toString();
         String taxa = taxa_confeitaria.getText().toString();
         String categoria = categoria_confeitaria.getText().toString();
+        String imagen = URL_Img_Selecionada;
 
         if(!nome.isEmpty()){
             if(!tempo.isEmpty()){
                 if(!categoria.isEmpty()){
                     if(!taxa.isEmpty()){
-
-                        Confeitaria confeitaria = new Confeitaria();
-                        confeitaria.setIdUsuario(IDUser);
-                        confeitaria.setNome(nome);
-                        confeitaria.setCategoria(categoria);
-                        confeitaria.setTempo(tempo);
-                        confeitaria.setTaxa(Double.parseDouble(taxa));
-                        confeitaria.setURLImage(URL_Img_Selecionada);
-                        confeitaria.Salvar();
-                        finish();
-
+                        if(!imagen.isEmpty()){
+                            Confeitaria confeitaria = new Confeitaria();
+                            confeitaria.setIdUsuario(IDUser);
+                            confeitaria.setNome(nome);
+                            confeitaria.setCategoria(categoria);
+                            confeitaria.setTempo(tempo);
+                            confeitaria.setTaxa(Double.parseDouble(taxa));
+                            confeitaria.setURLImage(URL_Img_Selecionada);
+                            confeitaria.Salvar();
+                            finish();
+                        }else{
+                            ExibirMensagem("Adicione Uma Imagen");
+                        }
                     }else{
                         ExibirMensagem("Digite Uma Taxa Media");
                     }

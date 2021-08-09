@@ -141,25 +141,28 @@ public class NovoProdutoConfeitaria extends AppCompatActivity {
         String descricao = descricao_produto.getText().toString();
         String calorias = calorias_produto.getText().toString();
         String preco = preço_produto.getText().toString();
+        String img_produto = URL_Img_Selecionada;
 
         if(!nome.isEmpty()){
             if(!descricao.isEmpty()){
                 if(!preco.isEmpty()){
                     if(!calorias.isEmpty()){
+                        if(!img_produto.isEmpty()) {
+                            Produto produto = new Produto();
 
-                        Produto produto = new Produto();
+                            produto.setIdUsuario(IDUser);
+                            produto.setNome(nome);
+                            produto.setCalorias(calorias);
+                            produto.setPreco(preco);
+                            produto.setDescricao(descricao);
+                            produto.setURLImage(URL_Img_Selecionada);
 
-                        produto.setIdUsuario(IDUser);
-                        produto.setNome(nome);
-                        produto.setCalorias(calorias);
-                        produto.setPreco(preco);
-                        produto.setDescricao(descricao);
-                        produto.setURLImage(URL_Img_Selecionada);
-
-                        produto.salvar();
-                        finish();
-                        ExibirMensagem("Produto Adicionado Com Sucesso");
-
+                            produto.salvar();
+                            finish();
+                            ExibirMensagem("Produto Adicionado Com Sucesso");
+                        }else{
+                            ExibirMensagem("Adicione Uma Imagen");
+                        }
                     }else{
                         ExibirMensagem("Digite As Calorias Do Produto");
                     }

@@ -15,4 +15,9 @@
         android:id="@+id/Sair"
         android:title="Sair"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menuPedidos"
+        android:icon="@drawable/ic_assignment_black_24dp"
+        android:title="Pedidos"
+        app:showAsAction="always" />
 </menu>

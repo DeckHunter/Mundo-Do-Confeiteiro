@@ -142,8 +142,16 @@ public class ConfeitariaActivity extends AppCompatActivity {
             case R.id.menuNovoProduto :
                 AbrirNovoProduto();
                 break;
+            case R.id.menuPedidos :
+                AbrirPedidos();
+                break;
+
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void AbrirPedidos() {
+        startActivity(new Intent(ConfeitariaActivity.this, PedidosActivity.class));
     }
 
     private void AbriConfiguracoes() {

@@ -66,6 +66,8 @@ public class CardapioActivity extends AppCompatActivity {
     private TextView textCarrinhoQtd;
     private TextView textCarrinhoTotal;
 
+    private int caracteristicasDoPedido;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -290,9 +292,51 @@ public class CardapioActivity extends AppCompatActivity {
 
         switch(item.getItemId()){
             case R.id.menuPedido :
-
+                ConfirmarPedido();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void ConfirmarPedido() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Metodo De Recebimento");
+
+        CharSequence[] itens = new CharSequence[]{
+            "Entrega a Domicílio e Pagar Com Cartão", "Entrega a Domicílio e Pagar Com Dinheiro","Retirar no Estabelecimento"
+        };
+        builder.setSingleChoiceItems(itens, 0, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                caracteristicasDoPedido = i;
+            }
+        });
+
+        EditText observacao = new EditText(this);
+        observacao.setHint("Digite uma observação");
+        builder.setView(observacao);
+
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String obs = observacao.getText().toString();
+                pedidoRecuperado.setMetodoPagamento(caracteristicasDoPedido);
+                pedidoRecuperado.setObservacao(obs);
+                pedidoRecuperado.setStatus("Confirmado");
+                pedidoRecuperado.Confirmar();
+                pedidoRecuperado.Remover();
+                pedidoRecuperado = null;
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

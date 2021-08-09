@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
-                android:text="China in box"
+                android:text="Nome Da Confeitaria"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="16sp"
                 android:textStyle="bold" />

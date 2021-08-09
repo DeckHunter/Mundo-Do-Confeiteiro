@@ -3,6 +3,7 @@ package com.example.deckdeveloper.mundodoconfeiteiro.model;
 import com.example.deckdeveloper.mundodoconfeiteiro.helper.ConfiguracaoFireBase;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Pedido {
@@ -119,5 +120,37 @@ public class Pedido {
                 .child(getIdConfeitaria())
                 .child(getIdUsusario());
         pedidoRef.setValue(this);
+    }
+
+    public void Confirmar() {
+        DatabaseReference firebaseRef = ConfiguracaoFireBase.getFireBase();
+        DatabaseReference pedidoRef = firebaseRef
+                .child("pedidos")
+                .child(getIdConfeitaria())
+                .child(getIdPedido());
+        pedidoRef.setValue(this);
+    }
+
+    public void Remover() {
+
+        DatabaseReference firebaseRef = ConfiguracaoFireBase.getFireBase();
+        DatabaseReference pedidoRef = firebaseRef
+                .child("pedidos_usuario")
+                .child(getIdConfeitaria())
+                .child(getIdUsusario());
+        pedidoRef.removeValue();
+    }
+
+    public void AtulizarStatus() {
+
+        HashMap<String, Object> status = new HashMap<>();
+        status.put("status", getStatus());
+
+        DatabaseReference firebaseRef = ConfiguracaoFireBase.getFireBase();
+        DatabaseReference pedidoRef = firebaseRef
+                .child("pedidos")
+                .child(getIdConfeitaria())
+                .child(getIdPedido());
+        pedidoRef.updateChildren(status);
     }
 }
