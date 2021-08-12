@@ -35,7 +35,7 @@
 
             <TextView
                 android:id="@+id/textNomeConfeitariaCardapio"
-                android:layout_width="match_parent"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
@@ -43,6 +43,14 @@
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/localizacao_Mapa"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:background="@drawable/ic_location_on_black_24dp"
+                android:backgroundTint="@color/colorAccent" />
 
         </LinearLayout>
 
@@ -85,16 +93,24 @@
                 android:padding="8dp"
                 android:text="R$ 0"
                 android:textColor="@android:color/white" />
+
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerCardapio"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="142dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            android:layout_weight="0" />
+            android:layout_weight="0">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <WebView
+            android:id="@+id/webv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

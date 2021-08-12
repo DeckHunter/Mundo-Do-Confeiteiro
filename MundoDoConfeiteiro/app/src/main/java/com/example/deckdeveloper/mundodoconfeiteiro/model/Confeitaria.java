@@ -12,6 +12,15 @@ public class Confeitaria implements Serializable {
     private String Tempo;
     private String Categoria;
     private String Nome;
+    private String Endereco;
+
+    public String getEndereco() {
+        return Endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        Endereco = endereco;
+    }
 
     public Confeitaria() {
 

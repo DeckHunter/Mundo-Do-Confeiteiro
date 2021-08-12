@@ -32,17 +32,31 @@
             android:inputType="text"
             android:padding="16dp" />
 
-        <EditText
-            android:id="@+id/editUserEndereco"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/bg_edit_text"
-            android:ems="10"
-            android:hint="Endereço Completo"
-            android:inputType="text"
-            android:padding="16dp" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editUserEndereco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/bg_edit_text"
+                android:ems="10"
+                android:hint="Endereço Completo"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <Button
+                android:id="@+id/btn_Localizacao"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:background="@drawable/ic_location_on_black_24dp"
+                android:backgroundTint="@color/colorAccent" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/salvar"

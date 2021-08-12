@@ -13,7 +13,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,7 +43,7 @@ import java.util.List;
 
 import dmax.dialog.SpotsDialog;
 
-public class CardapioActivity extends AppCompatActivity {
+public class CardapioActivity extends AppCompatActivity{
 
     private ImageView imageConfeitariaCardapio;
     private TextView nomeconfeitariaCardapio;
@@ -67,6 +69,8 @@ public class CardapioActivity extends AppCompatActivity {
     private TextView textCarrinhoTotal;
 
     private int caracteristicasDoPedido;
+
+    private Button btn_localizacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,8 +132,19 @@ public class CardapioActivity extends AppCompatActivity {
         //Recuperar Produtos Para Empresa
         RecuperarProdutos();
         RecuperarDadosUsuarios();
-    }
 
+        btn_localizacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarGoogleMaps(confeitariaSelecionada.getEndereco());
+            }
+        });
+    }
+    public void mostrarGoogleMaps(String endereco) {
+        WebView wv = findViewById(R.id.webv);
+        wv.getSettings().setJavaScriptEnabled(true);
+        wv.loadUrl("https://www.google.com/maps/search/?api=1&query=" + endereco);
+    }
     private void ConfirmarQuantidade(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Quantidade");
@@ -256,6 +271,8 @@ public class CardapioActivity extends AppCompatActivity {
 
         textCarrinhoQtd = findViewById(R.id.textCarrinhoQtd);
         textCarrinhoTotal = findViewById(R.id.textCarrinhoPreco);
+
+        btn_localizacao =  findViewById(R.id.localizacao_Mapa);
     }
     private void RecuperarProdutos() {
         DatabaseReference produtosRef = firebaseRef
