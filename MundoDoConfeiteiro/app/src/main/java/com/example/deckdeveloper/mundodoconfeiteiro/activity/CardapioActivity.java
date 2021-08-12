@@ -6,8 +6,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,10 +47,11 @@ import dmax.dialog.SpotsDialog;
 
 public class CardapioActivity extends AppCompatActivity{
 
+    private static Confeitaria confeitariaSelecionada;
     private ImageView imageConfeitariaCardapio;
     private TextView nomeconfeitariaCardapio;
     private RecyclerView recyclerCardapio;
-    private Confeitaria confeitariaSelecionada;
+    //private Confeitaria confeitariaSelecionada;
     private Pedido pedidoRecuperado;
 
     private AdapterProduto adapterProduto;
@@ -136,15 +139,14 @@ public class CardapioActivity extends AppCompatActivity{
         btn_localizacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mostrarGoogleMaps(confeitariaSelecionada.getEndereco());
+                Intent i = new Intent(CardapioActivity.this, MapaActivity.class);
+                startActivity(i);
             }
         });
     }
-    public void mostrarGoogleMaps(String endereco) {
-        WebView wv = findViewById(R.id.webv);
-        wv.getSettings().setJavaScriptEnabled(true);
-        wv.loadUrl("https://www.google.com/maps/search/?api=1&query=" + endereco);
-    }
+    public static String GetLocalizacao(){
+        return confeitariaSelecionada.getEndereco();
+}
     private void ConfirmarQuantidade(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Quantidade");
